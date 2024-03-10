@@ -1,4 +1,5 @@
 # WEBENUM - opt tool for Web enumeration.
 
-I have builde that tool by the path I have been run for the OSCP, the idea is to use other enumeration tools in one executable file, which create txt files for each enumeration and allow us to execute search tools on them later like grep and find.
+I have builde that tool by the path I have been run for the OSCP, the idea is to use other enumeration tools in one executable file,
+which create txt files for each enumeration and allow us to execute search tools on them later like grep and find.
 
