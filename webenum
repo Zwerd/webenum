@@ -1,4 +1,5 @@
 #!/bin/bash
+# this code was written by zwerd
 engine=$1
 url=$2
 dirc=$3
@@ -7,12 +8,12 @@ options=$4
 [ $# -eq 0 ] && { 
 echo "Usage: $0 <buster engine> <url> <dir> <options>"; 
 echo "Buster Engine: dirb, dirbuster, gobuster, dirsearch, feroxbuster."
-echo "Directories: dirb, dirbuster, xajkep/discovery."
+echo "Directories: dirb, dirbuster, xajkep/discovery, seclists."
 echo "Options: -k html, -d, -e etc."
-echo "Note: options -u , -w, and -o already used."
+echo "Note: options -u , -w, and -o already used, so don't use them."
 exit 1; }
 
-for dir in $(find /usr/share/wordlists/$dirc/* |grep "\.txt");
+for dir in $(ls -laS $(find /usr/share/wordlists/$dirc/* | grep txt)|awk '{print $9}');
 do 
 	echo "dir: $dir"
 	echo "url: $url"
@@ -21,4 +22,3 @@ do
 	$engine -u $url -w $dir -o $(pwd)/$(echo $engine)_$(echo $url |sed 's/.*:\://'|cut -d"/" -f3)_$(echo $dir|awk -F"/" '{print $NF}') $options
 	sleep 5
 done
-
